@@ -1,0 +1,9 @@
+<h2>Edit a Category</h2>
+<% form_for :category, @category, :url => {:action=>'update'} do |f| -%>
+  <%= f.hidden_field :id %>
+  <div class="item">
+	<div class="label"><%= label_tag :name %></div>
+	<div class="field"><%= f.text_field :name %></div>
+  </div>
+  <%= submit_tag "Submit" %>
+<%- end -%>

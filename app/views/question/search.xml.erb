@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName><%= application_name %></ShortName>
+  <Description><%= application_name %> Search</Description>
+  <Contact/>
+  <Url type="text/html" method="get" template="<%= url_for :controller=>'question',:action=>"search", :only_path => false %>?q={searchTerms}"/>
+  <Url type="application/rss+xml" method="get" template="<%= url_for :controller=>'question',:action=>"search", :only_path => false %>?q={searchTerms}"/>
+  <Url type="application/x-suggestions+json" method="get" template="<%= url_for :controller=>'question',:action => 'search', :type=> 'autocomplete', :only_path => false %>&amp;q={searchTerms}"/>
+</OpenSearchDescription>

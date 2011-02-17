@@ -1,0 +1,31 @@
+<h2>List of Questions</h2>
+<table>
+  <thead>
+    <tr>
+      <td>Question</td>
+      <td><%= link_to("Answer","",:id=>"answers") %></td>
+      <td>Category</td>
+      <td>Recently Asked?</td>
+      <td>Controls:</td>
+    </tr>
+  </thead>
+  <tbody>
+	<%- @questions.each do |question| -%>
+	  <tr>
+        <td><%= question.question -%></td>
+        <td><span class="hidden" style="display:none;"><%= question.answer %></span></td>
+        <td><%= question.categories.map{|c|c.name}.join(", ") %></td>
+        <td><%= recently_asked?(question) ? "Yes" : "No" %></td>
+        <td><%= render "shared/control_links", :obj=>question %></td>
+	  </tr>
+	<%- end -%>
+  </tbody>
+</table>
+<script type="text/javascript">
+  $("#answers").click(function(){
+    $("span.hidden").each(function(){
+	  $(this).toggle();
+    });	
+    return false;
+  });
+</script>

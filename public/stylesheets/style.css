@@ -1,0 +1,130 @@
+/* HTML overrides */
+body{
+  margin:0;
+  background-color:#cccccc;
+}
+body.showing{
+  background-color:white;
+}
+a {
+  color:blue;
+  text-decoration:none;
+}
+a:visited {
+  color:blue;
+}
+a:hover {
+  color:blue;
+  border-bottom:1px dotted blue;
+}
+table {
+  border-collapse:collapse;
+  border:1px solid black;
+}
+table thead {
+ font-weight:bold;
+}
+table tr, table thead {
+  border-bottom:1px solid black;
+}
+table td {
+  border-right:1px solid black;
+  padding: 2px 5px;
+}
+/* END HTML overides */
+
+#wrapper{
+  margin-left:15em;
+  margin-right:15em;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  height:100%;
+  min-width:900px;
+}
+h2{
+  margin-top:0;
+}
+/* header */
+#header {
+  text-align:right;
+  background-color:teal;
+}
+#header h1 {
+  font-size:3em;
+  margin-top:0;
+  margin-bottom:0;
+  padding:.5em .5em .5em 0;
+  border-bottom:1px solid black;
+}
+/* END header*/
+
+/* menu */
+#menu {
+  float:left;
+  width:150px;
+  padding:10px;
+  height:100%;
+  background-color:#666666;
+  border-right:1px solid black;
+}
+#menu ul {
+  margin:0;
+  padding:0;
+}
+#menu ul li {
+  list-style-type:none;
+}
+#menu a:hover {
+  color:white;
+  border-bottom:1px dotted white;
+}
+/* END menu */
+
+/* main */
+#main {
+  padding:20px 20px 20px 190px;
+  background-color:white;
+  height:100%;
+}
+/* END main */
+
+/* show styles */
+
+body.showing #content {
+  font-size:5em;
+  text-align:center;
+}
+#question h1, #answer h1 {
+  font-size:2em;
+  text-align:center;
+}
+#answer #control_links {
+  text-align:center;
+  font-size:.2em;
+}
+/* END show styles */
+/* flash */
+#flash_message, #flash_error {
+  padding:5px;
+  margin-bottom:5px;
+}
+#flash_message {
+  background-color:teal;
+  border:1px solid black;
+}
+#flash_error {
+  background-color:red;
+  border:1px solid black;
+  font:white;
+}
+/* END flash */
+
+/* forms */
+form .item {
+  margin-bottom:5px;
+}
+form .item .label {
+  float:left;
+  width:70px;
+}
+/* END forms */

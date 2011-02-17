@@ -1,0 +1,11 @@
+<h2>Add a new Question</h2>
+<% form_for :question, @question, :url => {:action=>'create'} do |f| -%>
+  <div class="item">
+    <div class="label"><%= label_tag :question %></div><div class="field"><%= f.text_field :question, :size=>75 %></div>
+  </div>
+  <div class="item">
+    <div class="label"><%= label_tag :answer %></div><div class="field"><%= f.text_field :answer, :size=>75 %></div>
+  </div>
+  <%= render "categories" %>
+  <%= submit_tag "Submit" %>
+<%- end -%>

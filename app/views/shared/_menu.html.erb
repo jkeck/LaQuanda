@@ -1,0 +1,9 @@
+<ul>
+  <li><%= link_to("Home",root_path) %></li>
+  <li><%= link_to("Add a Question",{:controller=>"question",:action=>"new"}) %></li>
+  <li><%= link_to("Add a Category",{:controller=>"category",:action=>"new"}) %></li>
+  <li><%= link_to("Category List",{:controller=>'category'}) %></li>
+  <li><%= link_to("Question List",{:controller=>"question"}) %></li>
+  <li><%= link_to("Clear all history",{:controller=>"question",:action=>"clear_all_history"}) %></li>
+  <li><%= link_to("Start the show!",:controller=>"category",:showing=>"true") %></li>
+</ul>

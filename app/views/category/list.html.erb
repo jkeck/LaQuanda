@@ -1,0 +1,5 @@
+<h2>List of questions</h2>
+<%- @questions.each do |question| -%> 
+  <%= question.question %><br/>
+<%- end -%>
+<%= "No questions for this category" if @questions.empty? %>

@@ -1,0 +1,25 @@
+<div id="question">
+  <h1>Q) <%= @question.question unless @question.nil? %></h1>
+</div>
+<div id="answer" style="display:none;">
+  <h1>A) <%= @question.answer %></h1>
+  <div id="control_links">
+    <%= link_to("Another #{params[:controller] == "question" ? "random" : @question.categories.first.name} question", "") %> | <%= link_to("List of Categories",{:controller=>"category",:showing=>"true"}) %>
+  </div>
+</div>
+<br/>
+<br/>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(this).keydown(function(e){
+	  if (e.keyCode == 32) {
+		$("#question").toggle();
+		$("#answer").toggle();
+	  }else if(e.keyCode == 27){
+		window.location = "/";
+		return false;
+	  }
+	  
+    });	
+  });
+</script>

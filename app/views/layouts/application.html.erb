@@ -1,0 +1,41 @@
+<html>
+  <head>
+	<title><%= application_name %></title>
+	<link href="<%= url_for :controller=>'question',:action => 'search', :format => 'xml', :only_path => false %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+	<%= javascript_include_tag 'jquery.1.4.2.min.js' %>
+  	<%= stylesheet_link_tag 'style', :media=>'all' %>
+  </head>
+  <body<%= now_showing? ? " class='showing'" : "" %>>
+	<%- unless now_showing? -%>
+	  <div id="wrapper">
+	    <div id="header">
+	      <h1><%= application_name %></h1>	
+        </div>
+        <div id="menu">
+	      <%= render "shared/menu" %>
+	    </div>
+	    <div id="main">
+		  <%- unless flash.empty? -%>
+		    <%- if flash[:message] -%>
+			  <div id="flash_message">
+			    <%= flash[:message] %><br/>
+			  </div>
+			<%- end -%>
+			<%- if flash[:error] -%>
+			  <div id="flash_error">
+			    <%= flash[:error] %><br/>
+			  </div>
+	       <%- end -%>
+	    <%- end -%>
+	<%- end -%>
+	<div id="content">
+  	  <%= yield %>
+	</div>
+	<%- unless now_showing? -%>
+	    </div> <!-- end main -->
+        <div id="footer">
+	    </end>
+	  </div> <!-- end wrapper -->
+    <%- end -%>
+  </body>
+</html>

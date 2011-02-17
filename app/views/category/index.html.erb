@@ -1,0 +1,38 @@
+<%- unless now_showing? -%>
+  <h2>List of Categories</h2>
+  <table>
+	<thead><tr><td>Category</td><td>Total Q's</td><td>Random Q's left</td><td>Controls</td></tr></thead>
+	<tbody>
+	  <%- total_random = 0 -%>
+	  <%- @categories.each do |category| -%>
+	    <tr>
+		  <td>
+	        <%= link_to(category.name, {:id=>category[:id], :action=>'list'}) %>
+	      </td>
+	      <td>
+		    <%= category.questions.count %>
+		  </td>
+	      <td>
+		    <%- left = random_left(category.questions) -%>
+		    <%= left %>
+		    <%- total_random += left -%>
+		  </td>
+	      <td>
+		    <%= render "shared/control_links", :obj=>category %>
+		  </td>
+	    </tr>
+	  <%- end -%>
+	  <tr>
+		<td><b>Total:</b></td>
+		<td><%= Question.find(:all).length %></td>
+		<td><%= total_random %></td>
+		<td>&nbsp;</td>
+	  </tr>
+	</tbody>
+  </table>
+<%- else -%>
+  <%- @categories.each do |category| -%>
+    <div><%= link_to(category.name, {:id=>category[:id], :action=>'random'}) if category.questions.length > 0 and category.questions.map{|q| recently_asked?(q) }.include?(false) %></div>
+  <%- end -%>
+  <%= link_to("Random",{:controller=>"question",:action=>"random"}) %>
+<%- end -%>
